@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center align-items-center animate__animated animate__slideInRight">
+    <div class="row">
+        <div class="card text-dark bg-light mb-3 shadow-lg ">
+            <div class="card-body">
+                <div class="text-center">
+
+                    <img src="../assets/img/Instagram-logo-transparent-PNG.png" alt="" width="60" height="60" class="d-inline-block align-text-top">
+                </div>
+                <h5 class="card-title text-center">Desafiogram</h5>
+
+
+                <form [formGroup]="forma" autocomplete="off" (ngSubmit)="logIn()">
+
+                    <small>Email</small><br>
+                    <input type="text" placeholder="Ingresar usuario" class="form-control" email="true" formControlName="usuario">
+                    <span class="text-danger animated fadeIn" *ngIf="usuarioNoValido" class="text-danger">Debe ingresar un correo correcto.</span><br>
+
+
+
+                    <small>Contraseña</small><br>
+                    <input type="password" placeholder="Ingresar contraseña" class="form-control" formControlName="contrasena">
+                    <span class="text-danger animated fadeIn" *ngIf="contrasenaNoValido" class="text-danger">Debe ingresar al menos 2 letras.</span><br>
+
+
+                    <div class="mt-2 mb-1 text-center">
+                        <button class="btn btn-primary" type="submit">Login</button>
+                    </div>
+                    <div class="row text-center">
+                        <p class="card-text"><small class="text-muted"><b>No tienes cuenta? <a routerLink="/signup" style="text-decoration: none;">Click aquí!</a></b></small></p>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

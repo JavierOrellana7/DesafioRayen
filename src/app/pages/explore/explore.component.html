@@ -1,0 +1,29 @@
+<div class="container mt-2">
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div *ngFor="let post of arregloPosts" class="col">
+            <div class="card">
+                <div class="card-header"><b>{{post.usuario.username | titlecase}}</b></div>
+                <img [src]="'http://localhost:3000'+post.url" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.caption }}</h5>
+
+                    <div class="row">
+                        <div class="col-2">
+                            <span>{{post.numLikes}} </span><span style="color: blue;" class="fa fa-thumbs-up"></span>
+
+                        </div>
+                        <div class="col-2">
+                            <span>{{post.comentarios.length}} </span><span style="color: burlywood" class="fa fa-comments"></span>
+                        </div>
+                    </div>
+
+                    <p class="card-text"><small class="text-muted">Creado: {{post.fecha_creado | date: 'dd-MM-yyyy'}}</small></p>
+                    <p class="card-text"><small class="text-muted">Última actualización: {{post.fecha_actualizado | date: 'dd-MM-yyyy'}}</small></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
