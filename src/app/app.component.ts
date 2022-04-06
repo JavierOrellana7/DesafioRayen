@@ -1,7 +1,6 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { PostService } from './services/post.service';
-import { Post } from './models/post-model';
+
 
 @Component({
   selector: 'app-root',
@@ -11,19 +10,11 @@ import { Post } from './models/post-model';
 export class AppComponent implements OnInit {
   title = 'DesafioRayen';
 
-  arregloPosts: Post[] = [];
+  
 
-  constructor(private ps: PostService) {  }
+  constructor() {  }
 
   ngOnInit(): void {
-
-    this.ps.obtenerPosts().subscribe(data => {
-      if (data.length > 0) {
-        this.arregloPosts = data;
-        console.log(this.arregloPosts)
-      }
-
-    })
     
   }
 
