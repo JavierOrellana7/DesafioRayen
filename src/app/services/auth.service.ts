@@ -55,7 +55,7 @@ export class AuthService {
   }
 
   estaAutenticado(): boolean {
-    if (this.userToken.length < 2) {      
+    if (!localStorage.getItem('token')) {      
       return false;
     }
 

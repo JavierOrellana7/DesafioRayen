@@ -12,6 +12,7 @@ import { PostService } from '../../services/post.service';
 export class ExploreComponent implements OnInit {
 
   arregloPosts: Post[] = [];
+  arrayUsuarios: string [] = [];
 
   constructor(private ps: PostService) { }
 
@@ -19,11 +20,25 @@ export class ExploreComponent implements OnInit {
 
     this.ps.obtenerPosts().subscribe(data => {
       if (data.length > 0) {
-        this.arregloPosts = data;
-        console.log(this.arregloPosts)
+        this.arregloPosts = data;       
+        
+        this.arrayUsuarios = this.obtenerUsuarios(this.arregloPosts)
+        
+
       }
 
     })
+  }
+
+  obtenerUsuarios(array: Post[]): string[]{
+    let arrayUsuarios: string[] = [];
+    array.forEach(post => {
+      if (!arrayUsuarios.includes(post.usuario.username)) {
+        arrayUsuarios.push(post.usuario.username)
+      }
+    })
+
+    return arrayUsuarios;
   }
 
 }
